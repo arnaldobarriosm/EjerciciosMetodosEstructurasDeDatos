@@ -10,55 +10,71 @@ package com.estructurasdedatos;
  * @author abarrios
  * @param <E> elemento
  */
-public class PilaArreglo<E> {
+public class PilaArreglo<E> implements Pila<E> {
 
     private E[] listadoElementos;
     private int cima;
     private int maximo;
+    private int tamanio;
 
     public PilaArreglo() {
-        this.maximo = 100;
-        this.listadoElementos = (E[]) new Object[this.maximo];
-        this.cima = -1;
+        maximo = 100;
+        listadoElementos = (E[]) new Object[this.maximo];
+        cima = -1;
+        tamanio = 0;
     }
 
-    public PilaArreglo(int maximo) {
-        this.listadoElementos = (E[]) new Object[maximo];
-        this.cima = -1;
+    public PilaArreglo(int capacidadInicial) {
+        maximo = capacidadInicial;
+        listadoElementos = (E[]) new Object[maximo];
+        cima = -1;
+        tamanio = 0;
     }
 
+    @Override
     public boolean estaVacia() {
-        return this.cima == -1;
+        return cima == -1;
     }
 
+    @Override
     public boolean estaLlena() {
-        return this.cima == this.maximo - 1;
+        return cima == maximo - 1;
     }
 
-    public void empujar(E elemento) {
-        if (!this.estaLlena()) {
-            this.listadoElementos[this.cima] = elemento;
-            this.cima++;
+    @Override
+    public int tamanio() {
+        return tamanio;
+    }
+
+    @Override
+    public void agregar(E elemento) {
+        if (!estaLlena()) {
+            listadoElementos[cima] = elemento;
+            cima++;
+            tamanio++;
         } else {
             System.out.println("Pila Llena...!!!");
         }
     }
 
-    public E sacar() {
+    @Override
+    public E remover() {
         E elemento = null;
-        if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.cima];
-            this.cima--;
+        if (!estaVacia()) {
+            elemento = listadoElementos[cima];
+            cima--;
+            tamanio--;
         } else {
             System.out.println("Pila Vacía...!!!");
         }
         return elemento;
     }
 
+    @Override
     public E cima() {
         E elemento = null;
-        if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.cima];
+        if (!estaVacia()) {
+            elemento = listadoElementos[cima];
         } else {
             System.out.println("Pila Vacía...!!!");
         }
@@ -66,10 +82,10 @@ public class PilaArreglo<E> {
     }
 
     //Método para limpiar la pila
+    @Override
     public void limpiar() {
-        while (!this.estaVacia()) {
-            this.sacar();
+        while (!estaVacia()) {
+            remover();
         }
     }
-
 }

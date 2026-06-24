@@ -16,14 +16,29 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Cola<Integer> lista = new Cola<>();
-        lista.agregar(1);
-        lista.agregar(2);
-        lista.agregar(3);
-        lista.agregar(4);
-        lista.agregar(5);
+        ArbolBinario<Integer> ab = new ArbolBinario<>();
 
-        System.out.println(lista.imprimir());
+        NodoArbolBinario<Integer> n1 = new NodoArbolBinario<>(1);
+        NodoArbolBinario<Integer> n2 = new NodoArbolBinario<>(2);
+        NodoArbolBinario<Integer> n3 = new NodoArbolBinario<>(3);
+        NodoArbolBinario<Integer> n4 = new NodoArbolBinario<>(4);
+        NodoArbolBinario<Integer> n5 = new NodoArbolBinario<>(5);
+        NodoArbolBinario<Integer> n6 = new NodoArbolBinario<>(6);
+        NodoArbolBinario<Integer> n7 = new NodoArbolBinario<>(7);
+
+        n5.setHijoIzquierdo(n6);
+        n5.setHijoDerecho(n7);
+        n2.setHijoIzquierdo(n4);
+        n2.setHijoDerecho(n5);
+        n1.setHijoIzquierdo(n2);
+        n1.setHijoDerecho(n3);
+
+        ab.setRaiz(n1);
+
+        System.out.println(ab.preorden());
+        System.out.println(ab.postorden());
+        System.out.println(ab.inorden());
+
         
     }
  

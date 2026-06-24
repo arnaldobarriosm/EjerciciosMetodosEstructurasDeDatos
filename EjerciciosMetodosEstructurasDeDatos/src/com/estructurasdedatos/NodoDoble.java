@@ -10,28 +10,50 @@ package com.estructurasdedatos;
  * @author abarrios
  * @param <E> elemento
  */
-public class Nodo<E> {
+public class NodoDoble<E> {
 
+    private NodoDoble<E> anterior;
     private E elemento;
-    private Nodo<E> siguiente;
+    private NodoDoble<E> siguiente;
 
-    public Nodo() {
+    public NodoDoble() {
+        this.anterior = null;
         this.elemento = null;
         this.siguiente = null;
     }
 
-    public Nodo(E elemento) {
+    public NodoDoble(E elemento) {
+        this.anterior = null;
         this.elemento = elemento;
         this.siguiente = null;
     }
 
-    public Nodo(E elemento, Nodo<E> siguiente) {
+    public NodoDoble(NodoDoble<E> anterior, E elemento, NodoDoble<E> siguiente) {
+        this.anterior = anterior;
         this.elemento = elemento;
         this.siguiente = siguiente;
     }
 
+    public boolean tieneAnterior() {
+        return anterior != null;
+    }
+
     public boolean tieneSiguiente() {
         return siguiente != null;
+    }
+
+    /**
+     * @return the anterior
+     */
+    public NodoDoble<E> getAnterior() {
+        return anterior;
+    }
+
+    /**
+     * @param anterior the anterior to set
+     */
+    public void setAnterior(NodoDoble<E> anterior) {
+        this.anterior = anterior;
     }
 
     /**
@@ -51,14 +73,14 @@ public class Nodo<E> {
     /**
      * @return the siguiente
      */
-    public Nodo<E> getSiguiente() {
+    public NodoDoble<E> getSiguiente() {
         return siguiente;
     }
 
     /**
      * @param siguiente the siguiente to set
      */
-    public void setSiguiente(Nodo<E> siguiente) {
+    public void setSiguiente(NodoDoble<E> siguiente) {
         this.siguiente = siguiente;
     }
 }

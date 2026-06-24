@@ -12,12 +12,12 @@ package com.estructurasdedatos;
  */
 public class Lista<E> {
 
-    private Nodo<E> listaPositivos;
-    private Nodo<E> listaNegativos;
+    private NodoDoble<E> listaPositivos;
+    private NodoDoble<E> listaNegativos;
     private int tamanio;
 
     public Lista() {
-        this.listaPositivos = this.listaNegativos = null;
+        listaPositivos = listaNegativos = null;
     }
 
     public boolean estaVacia() {
@@ -25,24 +25,24 @@ public class Lista<E> {
     }
     
     public int tamanio(){
-        return this.tamanio;
+        return tamanio;
     }
 
     public void insertar(int dato) {
         if (dato > 0) {
-            Nodo positivo = new Nodo(dato);
+            NodoDoble positivo = new NodoDoble(dato);
             if (estaVacia()) {
                 listaPositivos = positivo;
-                this.tamanio++;
+                tamanio++;
                 System.out.println("El numero " + dato + " es positivo y se ha insertado correctamente a la lista de valores positivos...!!!");
             } else {
                 listaPositivos.setSiguiente(positivo);
                 listaPositivos = positivo;
-                this.tamanio++;
+                tamanio++;
                 System.out.println("El numero " + dato + " es positivo y se ha insertado correctamente a la lista de valores positivos...!!!");
             }
         } else {
-            Nodo negativo = new Nodo(dato);
+            NodoDoble negativo = new NodoDoble(dato);
             if (estaVacia()) {
                 listaNegativos = negativo;
                 System.out.println("El numero " + dato + " es negativo y se ha insertado correctamente a la lista de valores negativos...!!!");

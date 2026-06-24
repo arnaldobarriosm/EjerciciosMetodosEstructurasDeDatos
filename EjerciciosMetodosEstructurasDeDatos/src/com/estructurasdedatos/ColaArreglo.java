@@ -10,7 +10,7 @@ package com.estructurasdedatos;
  * @author abarrios
  * @param <E> elemento
  */
-public class ColaArreglo<E> {
+public class ColaArreglo<E> implements Cola<E>{
 
     private E[] listadoElementos;
     private int primero;
@@ -19,67 +19,76 @@ public class ColaArreglo<E> {
     private int tamanio;
 
     public ColaArreglo() {
-        this.maximo = 100;
-        this.listadoElementos = (E[]) new Object[this.maximo];
-        this.primero = -1;
-        this.ultimo = -1;
+        maximo = 100;
+        listadoElementos = (E[]) new Object[maximo];
+        primero = -1;
+        ultimo = -1;
+        tamanio = 0;
     }
 
-    public ColaArreglo(int maximo) {
-        this.maximo = 100;
-        this.listadoElementos = (E[]) new Object[maximo];
-        this.primero = -1;
-        this.ultimo = -1;
+    public ColaArreglo(int capacidadInicial) {
+        maximo = capacidadInicial;
+        listadoElementos = (E[]) new Object[this.maximo];
+        primero = -1;
+        ultimo = -1;
+        tamanio = 0;
     }
 
+    @Override
     public boolean estaVacia() {
-        return this.primero == -1;
+        return primero == -1;
     }
 
+    @Override
     public boolean estaLlena() {
-        return this.primero == this.maximo - 1;
+        return primero == maximo - 1;
     }
 
+    @Override
     public int tamanio() {
-        return this.tamanio;
+        return tamanio;
     }
 
+    @Override
     public void agregar(E elemento) {
-        if (!this.estaLlena()) {
-            this.listadoElementos[this.ultimo] = elemento;
-            this.ultimo++;
-            this.tamanio++;
+        if (!estaLlena()) {
+            listadoElementos[ultimo] = elemento;
+            ultimo++;
+            tamanio++;
         } else {
             System.out.println("Cola Llena...!!!");
         }
     }
 
+    @Override
     public E remover() {
         E elemento = null;
-        if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.primero];
-            this.primero--;
-            this.tamanio--;
+        if (!estaVacia()) {
+            elemento = listadoElementos[primero];
+            primero--;
+            tamanio--;
         } else {
             System.out.println("Cola Vacía...!!!");
         }
         return elemento;
     }
 
-    public E obtenerPrimero() {
+    @Override
+    public E primero() {
         E elemento = null;
-        if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.primero];
+        if (!estaVacia()) {
+            elemento = listadoElementos[primero];
         } else {
             System.out.println("Cola Vacía...!!!");
         }
         return elemento;
     }
 
-    public E obtenerUltimo() {
+    @Override
+    public E ultimo() {
         E elemento = null;
-        if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.ultimo];
+        if (!estaVacia()) {
+            elemento = listadoElementos[ultimo];
         } else {
             System.out.println("Cola Vacía...!!!");
         }
@@ -87,9 +96,10 @@ public class ColaArreglo<E> {
     }
 
     //Método para limpiar la cola.
+    @Override
     public void limpiar() {
-        while (!this.estaVacia()) {
-            this.remover();
+        while (!estaVacia()) {
+            remover();
         }
     }
 }
