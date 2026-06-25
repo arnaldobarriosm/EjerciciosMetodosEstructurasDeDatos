@@ -36,10 +36,7 @@ public class Main {
         ab.setRaiz(n1);
 
         System.out.println(ab.preorden());
-        System.out.println(ab.postorden());
-        System.out.println(ab.inorden());
 
-        
     }
  
 }

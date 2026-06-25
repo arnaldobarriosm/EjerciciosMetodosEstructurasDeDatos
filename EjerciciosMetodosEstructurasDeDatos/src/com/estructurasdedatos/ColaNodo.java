@@ -12,8 +12,8 @@ package com.estructurasdedatos;
  */
 public class ColaNodo<E> implements Cola<E> {
 
-    private NodoDoble<E> primero;
-    private NodoDoble<E> ultimo;
+    private Nodo<E> primero;
+    private Nodo<E> ultimo;
     private int tamanio;
 
     public ColaNodo() {
@@ -39,7 +39,7 @@ public class ColaNodo<E> implements Cola<E> {
 
     @Override
     public void agregar(E elemento) {
-        NodoDoble<E> nuevoNodo = new NodoDoble<>(elemento);
+        Nodo<E> nuevoNodo = new Nodo<>(elemento);
         if (estaVacia()) {
             primero = nuevoNodo;
             ultimo = nuevoNodo;

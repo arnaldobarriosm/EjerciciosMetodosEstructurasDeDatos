@@ -12,7 +12,7 @@ package com.estructurasdedatos;
  */
 public class PilaNodo<E> implements Pila<E> {
 
-    private NodoDoble<E> cima;
+    private Nodo<E> cima;
     private int tamanio;
 
     public PilaNodo() {
@@ -37,7 +37,7 @@ public class PilaNodo<E> implements Pila<E> {
 
     @Override
     public void agregar(E elemento) {
-        NodoDoble<E> nuevoNodo = new NodoDoble<>(elemento);
+        Nodo<E> nuevoNodo = new Nodo<>(elemento);
         if (estaVacia()) {
             cima = nuevoNodo;
         } else {
