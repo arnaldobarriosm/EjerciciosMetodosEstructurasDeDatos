@@ -22,7 +22,7 @@ public class ArbolBinario<E> {
 
     public ArbolBinario(NodoArbolBinario<E> raiz) {
         this.raiz = raiz;
-        tamanio = 0;
+        tamanio = 1;
     }
 
     /**
