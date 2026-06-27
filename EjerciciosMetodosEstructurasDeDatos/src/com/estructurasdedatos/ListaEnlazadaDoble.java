@@ -5,7 +5,6 @@ package com.estructurasdedatos;
  * @author abarrios
  * @param <E> elemento
  */
-
 public class ListaEnlazadaDoble<E> implements Lista<E> {
 
    private NodoDoble<E> primero;

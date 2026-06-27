@@ -5,7 +5,6 @@ package com.estructurasdedatos;
  * @author abarrios
  * @param <E> elemento
  */
-
 public interface Lista<E> {
 
     boolean estaVacia();

@@ -55,7 +55,6 @@ public class ArbolBinario<E> {
             s = preorden(raiz.getHijoDerecho(), s);
         }
         return s;
-
     }
 
     public String preorden() {
@@ -83,10 +82,8 @@ public class ArbolBinario<E> {
             s = this.inorden(raiz.getHijoIzquierdo(), s);
             s += " " + raiz.getElemento();
             s = this.inorden(raiz.getHijoDerecho(), s);
-
         }
         return s;
-
     }
 
     public String inorden() {
@@ -144,7 +141,6 @@ public class ArbolBinario<E> {
         Integer e = (Integer) raiz.getElemento();
         Integer c3 = c1 + c2 + e;
         return c3;
-
     }
 
     public String sumar() {
@@ -187,7 +183,6 @@ public class ArbolBinario<E> {
             return m2;
         }
         return m3;
-
     }
 
     public String buscarMayor() {
