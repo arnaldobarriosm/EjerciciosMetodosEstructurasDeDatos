@@ -42,6 +42,14 @@ public class NodoArbolBinario<E> {
         return hijoDerecho != null;
     }
 
+    public boolean tieneHijos(){
+        return hijoIzquierdo != null || hijoDerecho != null;
+    }
+
+    public boolean esHoja(){
+        return hijoIzquierdo == null && hijoDerecho == null;
+    }
+
     /**
      * @return the anterior
      */

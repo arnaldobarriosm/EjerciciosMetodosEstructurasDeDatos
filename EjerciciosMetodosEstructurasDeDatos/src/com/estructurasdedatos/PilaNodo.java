@@ -30,6 +30,10 @@ public class PilaNodo<E> implements Pila<E> {
         return new PilaNodo<>() == null;
     }
 
+    public Nodo<E> getCima() {
+        return cima;
+    }
+
     @Override
     public int tamanio() {
         return tamanio;
@@ -54,8 +58,6 @@ public class PilaNodo<E> implements Pila<E> {
             elemento = cima.getElemento();
             cima = cima.getSiguiente();
             tamanio--;
-        } else {
-            System.out.println("Pila Vacía...!!!");
         }
         return elemento;
     }
@@ -78,17 +80,17 @@ public class PilaNodo<E> implements Pila<E> {
     }
 
     public String imprimir() {
-        String s = "";
-        PilaNodo<E> pilaAuxiliar = new PilaNodo<>();
-        while (!estaVacia()) {
-            E elemento = remover();
-            s += "\n" + elemento;
-            pilaAuxiliar.agregar(elemento);
-        }
-        while (!pilaAuxiliar.estaVacia()) {
-            agregar(pilaAuxiliar.remover());
-        }
-        return s;
+       String s = "";
+       PilaNodo<E> pilaAux = new PilaNodo<>();
+       while (!estaVacia()) {
+          E elemento = remover();
+          s += elemento;
+          pilaAux.agregar(elemento);
+      }
+       while (!pilaAux.estaVacia()) {
+          agregar(pilaAux.remover());
+      }
+      return s;
     }
 
     public static <E> PilaNodo<E> eliminarPrimerElemento(PilaNodo<E> x) {

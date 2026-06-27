@@ -32,6 +32,14 @@ public class ColaNodo<E> implements Cola<E> {
         return new ColaNodo<>() == null;
     }
 
+    public Nodo<E> getPrimero() {
+        return primero;
+    }
+
+    public Nodo<E> getUltimo() {
+        return ultimo;
+    }
+
     @Override
     public int tamanio() {
         return tamanio;
@@ -95,7 +103,7 @@ public class ColaNodo<E> implements Cola<E> {
         ColaNodo<E> colaAuxiliar = new ColaNodo<>();
         while (!estaVacia()) {
             E elemento = remover();
-            s += "\n" + elemento;
+            s += "[ " + elemento + " ]" + "\n";
             colaAuxiliar.agregar(elemento);
         }
         while (!colaAuxiliar.estaVacia()) {
